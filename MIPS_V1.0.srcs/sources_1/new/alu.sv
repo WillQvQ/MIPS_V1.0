@@ -25,6 +25,7 @@ always_comb begin
         S_OR_NEG:   ALUResult = SrcA |~SrcB;
         S_MINUS:    ALUResult = SrcA - SrcB;
         S_STL:      ALUResult = SrcA < SrcB;
+        S_UNUSED:   ALUResult = 0;
     endcase
 end
 assign Zero = ALUResult==0 ? 1 : 0;
