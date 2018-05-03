@@ -8,8 +8,8 @@ module mips(
     output  logic[31:0] aluout, writedata,
     input  logic[31:0] readdata
 );
-logic       memtoreg, alusrc, regdst,
-            regwrite, jump, pcsrc, zero;
+logic       memtoreg, regdst, regwrite, jump, pcsrc, zero;
+logic [1:0] alusrc;   
 logic [2:0] alucontrol;
 controller controller(instr[31:26],instr[5:0],zero,
             memtoreg, memwrite, pcsrc ,alusrc,
