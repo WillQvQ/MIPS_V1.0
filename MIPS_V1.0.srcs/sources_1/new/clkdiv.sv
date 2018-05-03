@@ -8,12 +8,7 @@ module clkdiv(
     );
     logic [27:0]q;
     always@(posedge mclk)
-//      begin
-//    if(!clr)
-//         q<=0;
-//    else
          q<=q+1;
-//    end
     assign clk380=q[17];
     assign clk48=q[20];
     assign clk0_4hz=q[26];         

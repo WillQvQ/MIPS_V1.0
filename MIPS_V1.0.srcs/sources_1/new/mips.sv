@@ -1,12 +1,12 @@
 `timescale 1ns / 1ps
 
-module mips(
+module mips#(parameter N = 32)(
     input   logic       clk, reset,
-    output  logic[31:0] pc,
-    input   logic[31:0] instr,
+    output  logic[N-1:0] pc,
+    input   logic[N-1:0] instr,
     output   logic       memwrite,
-    output  logic[31:0] aluout, writedata,
-    input  logic[31:0] readdata
+    output  logic[N-1:0] aluout, writedata,
+    input  logic[N-1:0] readdata
 );
 logic       memtoreg, regdst, regwrite, jump, pcsrc, zero;
 logic [1:0] alusrc;   

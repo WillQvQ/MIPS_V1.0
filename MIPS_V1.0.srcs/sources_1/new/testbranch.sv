@@ -64,23 +64,5 @@ always@(posedge CLK380)
 		endcase 
 		cnt <=cnt+1'b1; 
     end  
-//initial begin
-    //    reset <= 1; #22; reset <= 0;
-    //end    
-    //always begin
-    //    clk <= 1; #5 clk <= 0; #5;
-    //end
-    //always @(negedge clk) begin
-    //    if (memwrite) begin
-    //        if (dataadr === 84 & writedata === 7)begin
-    //            $display("LOG:Simulation succeeded");
-    //            $stop;
-    //        end
-    //        else if (dataadr !== 80) begin
-    //            $display("LOG:Simulation failed");
-    //            $stop;
-    //        end 
-    //    end
-    //end
 
 endmodule  

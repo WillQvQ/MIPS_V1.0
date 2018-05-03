@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 
-module regfile(
+module regfile#(parameter N = 32, L = 32)(
     input   logic           clk,
     input   logic           we3,
     input   logic [4:0]     ra1, ra2, wa3,
-    input   logic [31:0]    wd3,
-    output  logic [31:0]    rd1, rd2
+    input   logic [N-1:0]    wd3,
+    output  logic [N-1:0]    rd1, rd2
     );
-logic [31:0] rf[31:0];
+logic [N-1:0] rf[L-1:0];
 always_ff @(posedge clk)
     if (we3) begin
         $display("REG%d %d",wa3,wd3);
