@@ -19,7 +19,7 @@ always_comb begin
               6'b100100:alucontrol <= 3'b000; //and
               6'b100101:alucontrol <= 3'b001; //or
               6'b101010:alucontrol <= 3'b111; //slt
-              6'b000000:alucontrol <= 3'b011; //sll TRICK
+              6'b000000:alucontrol <= 3'b011; //nop
               default:  alucontrol <= 3'bxxx;//???
         endcase
     endcase
