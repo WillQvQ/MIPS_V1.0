@@ -2,10 +2,10 @@
 
 
 module alu#(parameter N = 32)
-    (input logic [N-1:0]SrcA,SrcB,
-    input logic [2:0]ALUControl,
-    output logic [N-1:0]ALUResult,
-    output logic Zero
+    (input  logic [N-1:0] alu_a,alu_b,
+    input   logic [2:0]   alu_control,
+    output  logic [N-1:0] alu_y,
+    output  logic         zero
     );
 parameter S_OR = 3'b001;
 parameter S_AND = 3'b000;
@@ -17,16 +17,16 @@ parameter S_MINUS = 3'b110;
 parameter S_STL = 3'b111;
 
 always_comb begin
-    case(ALUControl)
-        S_AND:      ALUResult = SrcA & SrcB;
-        S_OR:       ALUResult = SrcA | SrcB;
-        S_PLUS:     ALUResult = SrcA + SrcB;
-        S_AND_NEG:  ALUResult = SrcA &~SrcB;
-        S_MINUS_NE: ALUResult = (SrcA - SrcB == 0 )? 1 : 0;
-        S_MINUS:    ALUResult = SrcA - SrcB;
-        S_STL:      ALUResult = SrcA < SrcB;
-        S_UNUSED:   ALUResult = 0;
+    case(alu_control)
+        S_AND:      alu_y = alu_a & alu_b;
+        S_OR:       alu_y = alu_a | alu_b;
+        S_PLUS:     alu_y = alu_a + alu_b;
+        S_AND_NEG:  alu_y = alu_a &~alu_b;
+        S_MINUS_NE: alu_y = (alu_a - alu_b == 0 )? 1 : 0;
+        S_MINUS:    alu_y = alu_a - alu_b;
+        S_STL:      alu_y = alu_a < alu_b;
+        S_UNUSED:   alu_y = 0;
     endcase
 end
-assign Zero = ALUResult==0 ? 1 : 0;
+assign zero = alu_y==0 ? 1 : 0;
 endmodule

@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
-module imem#(parameter N = 32, L = 64, logL = 6)(
-    input   logic [logL-1:0] a,
+module imem#(parameter N = 32, L = 64, LL=6)(
+    input   logic [LL-1:0] a,
     output  logic [N-1:0] rd 
     );
 logic [N-1:0] RAM[L-1:0];
